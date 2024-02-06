@@ -1,0 +1,28 @@
+ALGORITHM array_sum_two_element
+VAR
+    set1,set2 : ARRAY_OF INTEGER
+    i,j : INTEGER
+    set1 := i; //[3,1,7,9]
+    set2 := j; //[2,4,1,9,3]  
+    sum1 := 0; //sum of the elements that appeared more than on time across the sets
+    sum2 := 0; //sum of the elements that appeared one time across the sets
+BEGIN
+    // To get the sum of the elements that appeared more than once across the sets
+    FOR i FROM 0 TO set1.length STEP 1 DO 
+     FOR j FROM 0 TO set2.lenght STEP 1 DO //Checking if we have the same value at set1 with set2
+        IF (set1[i] === set2[j])
+            THEN
+            sum +:=(set1[i] + set2[j])
+        END_FOR
+//  To get the sum of the elements that appeared once across the sets
+    FOR i FROM 0 TO set1.lenght STEP 1 DO
+        IF (set2:=(set1[i]))
+        THEN
+        sum2= set1[i]
+    END IF
+    ELSE
+    FOR j FROM 0 TO set2.lenght STEP 1 DO
+        IF (set2:=(set2[j]))
+        sum2 := set2[j]
+    END_FOR
+END
